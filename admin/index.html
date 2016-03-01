@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>R3 | Chat Application</title>
+<script src="js/jquery-1.12.1.min.js"></script>
+<script src="js/firebase.js"></script>
+</head>
+
+<body>
+<h1>R3 Chat</h1>
+<h3 id="status"></h3>
+<form>
+<input type="number" id="id">
+<input type="text" id="name">
+<button id="submit">Submit</button>
+</form>
+
+<form style="margin-top:1%;">
+<input type="text" id="from" placeholder="Sender's Name:">
+<input type="text" id="to" placeholder="Reciever's Name:"><br><br>
+<textarea id="msg" style="width:25%; height:50px;" placeholder="Your message here"></textarea><br>
+<button type="submit" id="send">Send</button> <span id="error" style="color:red;"></span>
+<h2 id="done">sd</h2>
+</form>
+<script>
+$('#status').html("Loading...");
+var db = new Firebase("https://r3chat.firebaseio.com/");
+db.on("value",function(data){
+	$("#status").html("Ready to use.");	
+});
+
+$("#submit").on('click',function()
+{
+	var identity=$("#id").val();
+	var user_name=$("#name").val();
+	var entry={id:identity,name:user_name};
+	db.child("users").push().set(entry, function(error){
+			$("#status").html("Data saved.");
+		});
+	});
+	$("#send").on('click', function()
+	{
+		
+		var frm=$("#from").val();
+		var to=$("#to").val();
+		var message=$("#msg").val();
+		if(frm==="" || to==="" || message==="")
+		{
+			$("#error").html("Please fill al the fields");
+			
+		}
+		else
+		{
+			var msg_entry={from:frm,to:to,message:message};
+			db.child("msg").push().set(msg_entry,function(error)
+			{
+				$("#done").html("Message sent.");
+			});
+		}
+	});
+</script>
+</body>
+</html>
