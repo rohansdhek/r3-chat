@@ -10,6 +10,7 @@
 	Email: <input type="email" id="log_email"></input>
 	Password: <input type="password" id="log_pass"></input>
 	<button type="submit" id="login">Login</button>
+	<p id="load"></p>
 	<p id="warning" style="color: red"></p>
 </div>
 
@@ -29,7 +30,8 @@
 	var db = new Firebase("https://r3chat.firebaseio.com/");
 	db.on("value",function(data){});
 	$("#login").on('click',function()
-	{
+	{		
+			$("#load").html("Please wait...")
 			var email1=$("#log_email").val();
 			var pass1=$("#log_pass").val();
 			if(email1=="" || pass1=="")
@@ -46,11 +48,14 @@
 					if(error)
 					{
 						console.log("login failed!!",error);
+						
 					}
 					else
 					{
+						$("#load").html(" 	");
 						console.log("Success");
-						//window.location.href="index.html";	
+						localStorage.setItem("currentUser",email1);
+						window.location.href="admin_home.html";	
 					}
 
 				});	
@@ -79,7 +84,7 @@
 					
 						db.createUser(set,function(error,UserData){});
 
-						var create={name:fullName,email:email,role:"user",password:password2};
+						var create={name:fullName,email:email,role:"user",};
 						db.child("users").push().set(create, function(error)
 						{
 							$("#status").html('Account Created');
