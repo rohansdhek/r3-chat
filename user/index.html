@@ -9,26 +9,32 @@
 
 <body>
 <div>
-	<div style="display:inline-block; width:22%; border:1px solid; height:600px; margin:2% 0px 0px 2%">Recent Chats
-	
-	</div>
-	<div style="display:inline-block; width:51%; border:1px solid; height:600px">Name</div>
-	<div style="display:inline-block; width:22%; border:1px solid; height:600px; margin:2% 10px 0px 0px">chat</div>
+	<h3 id="status">welcome</h3>
+	Enter Email:<input type="email" id="email" placeholder="EMAIL"><br><br>
+	Enter Password:<input type="password" id="password" placeholder="PASSWORD"><br><br>
+	<button id="btn">Login</button>
 </div>
 
-
-
-
-
-
-
-
-<script>
+<script type="text/javascript">
+	$("#status").html("Loading...");
 	var db= new Firebase("https://r3chat.firebaseio.com");
-	db.child("users").on("value", function(data){
-		var users = data.val();
-		console.log(users);
-		$("#users").html(user.name);
+	db.on("value", function(error){
+		$("#status").html("ready to use");
+	});
+	$("#btn").on("click", function(){
+		var email=$("#email").val();
+		var password=$("#password").val();
+		db.authWithPassword({
+			email:email,
+			password:password
+		},function(error, authData){
+			if(error==null){
+				$("status").html("LoggedIn")
+			}else
+			{				
+				$("status").html("Failed")
+			}
+		});
 	});
 </script>
 </body>
