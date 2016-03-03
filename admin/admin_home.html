@@ -64,12 +64,21 @@
 			});
 	    }
 	
-	messages.on("value",function(data)
-		{
-			var count=0;
-			var msgs=data.val();
-			console.log(msgs);
-		});
+		messages.on("value",function(serverMessages)
+			{	var count=0;
+				var msg=serverMessages.val();
+				//$("#messages").html("");
+				$.each(msg, function(index, value)
+				{
+					
+					/*var msg_entry="<li><a href='#'>"+value.msg+"</a></li>";
+					var temp=$("#messages").html();
+					$("#messages").html(temp+msg_entry);*/
+					count+=1;
+				})
+				$("total_msg").html(count);
+
+			});
 		</script>
 </body>
 </html>

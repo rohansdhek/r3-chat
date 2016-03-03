@@ -1,0 +1,85 @@
+<html>
+<head>
+	<title>hello</title>
+	<script src="js/jquery-1.12.1.min.js"></script>
+	<script src="js/firebase.js"></script>
+</head>
+<body>
+	<div>
+		<h1>Welcome, <span id="currentUser"></span></h1>
+		<div style="display: inline-block; width: 20%">
+			<h2>Friend list</h2>
+			<ul id="users">
+			</ul>
+		</div>
+		<div style="display: inline-block; width: 60%">
+			<h3>To: <span id="toName"></span></h3>
+			<textarea name="textarea" id="msg" rows=20 cols=40 placeholder="write a message"></textarea>
+			<button id="sendBtn">Send</button>
+		</div>
+	</div>
+<div>
+	<h2>INBOX</h2>
+	<ul id="messages" style="list-style: none;">
+	</ul>
+<div>
+
+	<script type="text/javascript">
+	var currentUser = localStorage.getItem("currentUser");
+	var toEmail="";
+	$("#currentUser").html(currentUser);
+
+	var db=new Firebase("https://r3chat.firebaseio.com/users");
+	
+	var messages = new Firebase("https://r3chat.firebaseio.com/messages");
+	db.on("value", function(serverObject){
+			var users = serverObject.val();
+			$("#users").html("");
+			$.each(users, function(index, value){
+				var html = "<li><a href='#' onClick=\"changeName('"+value.email+"')\">"+value.name+"</a></li>";
+				var temp = $("#users").html();
+				$("#users").html(temp+html);
+					
+			});
+
+		}, function(error){
+			console.log(error);
+		});
+
+		function changeName(name1){
+			toEmail=name1;
+			$("#toName").html(name1);
+		}
+
+	$("#sendBtn").on("click", function(){
+		var msg={
+			to: toEmail,
+			from: currentUser,
+			msg: $("#msg").val(),
+			date: Date.now()
+		};
+
+		messages.push().set(msg, function(error)
+		{
+			console.log(error);
+		});
+		});
+		messages.on("value",function(serverMessages)
+			{	
+				var msg=serverMessages.val();
+				$("#messages").html("");
+				$.each(msg, function(index, value)
+				{
+					
+					var msg_entry="<li>"+value.from+": "+value.msg+"</li>";
+					var temp=$("#messages").html();
+					$("#messages").html(temp+msg_entry);
+				})
+
+			});
+
+	
+	</script>
+
+</body>
+</html>
