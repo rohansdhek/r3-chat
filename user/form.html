@@ -12,14 +12,14 @@
 			<ul id="users">
 			</ul>
 		</div>
-		<div style="display: inline-block; width:60%;">
+		<div style="display: inline-block; width:40%;">
 			<h3>To: <span id="toName"></span></h3>
 			<textarea name="textarea" id="msg" rows=20 cols=40 placeholder="write a message"></textarea>
 			<button id="sendBtn">Send</button>
 		</div>
 		<div style="display: inline-block; width:10%;">
 			<h2>Messages</h2>
-			<ul id="incoming">
+			<ul id="messages">
 			</ul>
 			<button style="text-align:right;" id="logoutbtn">Logout</button>
 		</div>
@@ -52,7 +52,17 @@
 			toEmail=name1;
 			$("#toName").html(name1);
 		}
-
+		var messages = new Firebase("https://r3chat.firebaseio.com/messages");
+		messages.on("value", function(serverMessages){
+			var msg=serverMessages.val();
+			$("#messages").html("");
+			$.each(msg, function(index, value){
+				var html = "<li><b>"+value.from+"</b>:"+value.msg+"</li>";
+				var temp = $("#messages").html();
+				$("#messages").html(temp+html);
+			
+				}) 
+		});
 	$("#sendBtn").on("click", function(){
 		var msg={
 			to: toEmail,
@@ -64,8 +74,7 @@
 			console.log(error);
 		});
 	});
-	var rmessages = new Firebase("https://r3chat.firebaseio.com/messages");
-	
+		
 	$("#logoutbtn").on("click", function(){
 				window.location="index.html";			
 				});
