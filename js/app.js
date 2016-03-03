@@ -14,7 +14,9 @@
 			var log={email:email1,password:pass1};
 			db.authWithPassword(log,function(error,authdata){
 				if(error){
-						$("#warning").html("login failed!!",error);
+
+						$("#warning").html("login failed!! " + error);
+						$("#load").html(" 	");
 				}
 				else{
 					$("#load").html(" 	");
