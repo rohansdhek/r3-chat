@@ -1,32 +1,3 @@
-<html>
-<head>
-	<title>hello</title>
-	<script src="js/jquery-1.12.1.min.js"></script>
-	<script src="js/firebase.js"></script>
-</head>
-<body>
-	<div>
-		<h1>Welcome, <span id="currentUser"></span></h1>
-		<div style="display: inline-block; width:20%;">
-			<h2>Friend list</h2>
-			<ul id="users">
-			</ul>
-		</div>
-		<div style="display: inline-block; width:40%;">
-			<h3>To: <span id="toName"></span></h3>
-			<textarea name="textarea" id="msg" rows=20 cols=40 placeholder="write a message"></textarea>
-			<button id="sendBtn">Send</button>
-		</div>
-		<div style="display: inline-block; width:10%;">
-			<h2>Messages</h2>
-			<ul id="messages">
-			</ul>
-			<button style="text-align:right;" id="logoutbtn">Logout</button>
-		</div>
-	</div>
-
-
-	<script type="text/javascript">
 	var currentUser = localStorage.getItem("currentUser");
 	var toEmail="";
 	$("#currentUser").html(currentUser);
@@ -76,8 +47,6 @@
 	});
 		
 	$("#logoutbtn").on("click", function(){
-				window.location="index.html";			
-				});
-	</script>
-</body>
-</html>
+		localStorage.setItem("currentUser","");
+		window.location.href="../index.html";			
+	});

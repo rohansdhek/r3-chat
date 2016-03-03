@@ -1,27 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<script src="js/jquery-1.12.1.min.js"></script>
-	<script src="js/firebase.js"></script>
-	<title>Welcome</title>
-</head>
-<body>
-<h1>Welcome, <span id="currentUser"></span></h1>
-<div style="text-align:right">
-	<button id="logout">Logout</button>
-</div>
-<div style="display: inline-block; margin: 1%;">
-	<h3><span id="total"></span> </h3>
-	<ul id="users"> 
-	</ul>
-	
-</div>
-<div style="display: inline-block;vertical-align: top;border: 2px solid black; margin: 1%;">
-	<h2 id="total_msg"></h2>	
-</div>
-
-
-<script>
 	var currentUser=localStorage.getItem("currentUser") 
 	$("#currentUser").html(currentUser);
 	var db = new Firebase("https://r3chat.firebaseio.com/users");
@@ -79,6 +55,9 @@
 				$("total_msg").html(count);
 
 			});
-		</script>
-</body>
-</html>
+
+/*Logout Function*/
+$("#logout").on("click", function(){
+	localStorage.setItem("currentUser","");
+	window.location.href="../index.html";
+});
