@@ -1,0 +1,96 @@
+<html>
+<head>
+	<script src="js/jquery-1.12.1.min.js"></script>
+	<script src="js/firebase.js"></script>
+</head>
+<title>Sign Up</title>
+
+<body>
+<div style="margin: 2%;">
+	Email: <input type="email" id="log_email"></input>
+	Password: <input type="password" id="log_pass"></input>
+	<button type="submit" id="login">Login</button>
+	<p id="load"></p>
+	<p id="warning" style="color: red"></p>
+</div>
+
+<hr>
+
+<div style="margin: 2%;">
+	<h2>Create Account</h2>	
+	Full Name:  <input type="text" id="name"></input><br><br>
+	Email address: <input type="email" id="email"></input><br><br>
+	Password:  <input type="password" id="pass"></input><br><br>
+	<button type="submit" id="btn">Create Account</button><span id="error" style="color: red;"></span>
+	
+<p id="status"></p>
+</div>
+<script>
+	
+	var db = new Firebase("https://r3chat.firebaseio.com/");
+	db.on("value",function(data){});
+	$("#login").on('click',function()
+	{		
+			$("#load").html("Please wait...")
+			var email1=$("#log_email").val();
+			var pass1=$("#log_pass").val();
+			if(email1=="" || pass1=="")
+			{
+				$("#warning").html("Fill all the fields");
+
+			}
+			else
+			{
+				$("#warning").html("");
+					var log={email:email1,password:pass1};
+				db.authWithPassword(log,function(error,authdata)
+				{
+					if(error)
+					{
+						console.log("login failed!!",error);
+						
+					}
+					else
+					{
+						$("#load").html(" 	");
+						console.log("Success");
+						localStorage.setItem("currentUser",email1);
+						window.location.href="admin_home.html";	
+					}
+
+				});	
+	}
+
+	});
+	
+
+	$("#btn").on('click', function()
+		{
+
+			var fullName=$("#name").val();
+			var email= $("#email").val();
+			var password=$("#pass").val();
+
+				if(fullName=="" || email=="" || password=="")
+				{
+					$("#error").html("Please fill all the fields");
+				}
+				else
+				{
+					$("#error").html("");
+					var email2=$("#email").val();
+					var password2=$("#pass").val();
+					var set={email:email2,password:password2};
+					
+						db.createUser(set,function(error,UserData){});
+
+						var create={name:fullName,email:email,role:"user",};
+						db.child("users").push().set(create, function(error)
+						{
+							$("#status").html('Account Created');
+						});
+				}	
+		});
+</script>
+</body>
+</html>

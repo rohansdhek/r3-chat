@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="js/jquery-1.12.1.min.js"></script>
+	<script src="js/firebase.js"></script>
+<title>Welcome</title>
+</head>
+<body>
+<h1>Welcome, <span id="currentUser"></span></h1>
+<div style="display: inline-block; margin: 1%;">
+
+	<ul id="users"> 
+	</ul>
+	<h3><span id="total"></span> </h3>
+</div>
+<div style="display: inline-block;vertical-align: top;border: 2px solid black; margin: 1%;">
+	<h2 id="total_msg"></h2>
+	
+</div>
+
+
+<script>
+	var currentUser=localStorage.getItem("currentUser") 
+	$("#currentUser").html(currentUser);
+	var db = new Firebase("https://r3chat.firebaseio.com/users");
+	var messages=new Firebase("https://r3chat.firebaseio.com/users/messages");
+	db.on("value",function(data)
+		{
+			var count=0;
+			var users=data.val();
+			$("#users").html("");
+			$.each(users, function(index,value)
+			{
+				var user_list="<li>"+ value.name  +"<a href='#' style=\"text-decoration:none;\" onclick=\"remove("+value.id+")\"> Delete</a></li>";
+				var temp=$("#users").html();
+				$("#users").html(temp+user_list);
+				count+=1;
+
+			});
+			$("#total").html("Users in total: "+count);
+			
+		});
+	function remove(user_id)
+	{
+		db.removeUser(user_id,function(error){
+			if(error)
+			{
+				console.log(" User can't be deleted because" + error);
+			}
+			else
+			{
+				console.log("user successfully deleted");
+			}
+		});
+	}
+	messages.on("value",function(data)
+		{
+			var count=0;
+			var msgs=data.val();
+		});
+</script>
+</body>
+</html>
