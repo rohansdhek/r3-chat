@@ -63,10 +63,12 @@
 		messages.push().set(msg, function(error){
 			console.log(error);
 		});
+	});
+	var rmessages = new Firebase("https://r3chat.firebaseio.com/messages");
+	
 	$("#logoutbtn").on("click", function(){
 				window.location="index.html";			
 				});
-	
 	</script>
 </body>
 </html>

@@ -10,17 +10,17 @@
 <body style="text-align: center;">
 <div>
 	<h3 id="status">SignIn</h3>
-	Enter Email<br><input type="email" id="lemail" placeholder="EMAIL"><br><br>
-	Enter Password<br><input type="password" id="lpassword" placeholder="PASSWORD"><br><br>
-	<button id="btn">Login</button>
+	Enter Email<br><input type="email" id="lemail" placeholder="email"><br><br>
+	Enter Password<br><input type="password" id="lpassword" placeholder="password"><br><br>
+	<button id="logbtn">Login</button>
 </div>
 <hr>
 <div>
 	<h3 id="status1">SignUp</h3>
-	Enter Name<br><input type="text" id="name" placeholder="NAME"><br><br>
-	Enter Email<br><input type="email" id="email" placeholder="EMAIL"><br><br>
-	Enter Password<br><input type="password" id="password" placeholder="PASSWORD"><br><br>
-	<button id="btn1">SignUp</button>
+	Enter Name<br><input type="text" id="name" placeholder="name"><br><br>
+	Enter Email<br><input type="email" id="email" placeholder="email"><br><br>
+	Enter Password<br><input type="password" id="password" placeholder="password"><br><br>
+	<button id="signbtn">SignUp</button>
 	
 </div>
 <script>
@@ -29,7 +29,7 @@
 
 <script type="text/javascript">
 	var db=new Firebase("https://r3chat.firebaseio.com")
-	$("#btn").on("click", function(){
+	$("#logbtn").on("click", function(){
 			var email=$("#lemail").val();
 			var password=$("#lpassword").val();
 			db.authWithPassword({
@@ -47,7 +47,7 @@
 			});
 	});
 			
-	$("#btn1").on("click",function(){
+	$("#signbtn").on("click",function(){
 			var email=$("#email").val();
 			var password=$("#password").val();
 
@@ -67,6 +67,7 @@
 			db.child("users").push().set({
 				email:email,
 				role:"user",
+				password:$("#password").val(),
 				name:$("#name").val()
 			}, function(error){}
 			);
