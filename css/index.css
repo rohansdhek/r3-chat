@@ -1,0 +1,28 @@
+
+.body
+{
+	margin: 0px;
+	font-family: 'Exo', sans-serif;
+ 	background-color:#33001a;
+ 	font-weight: bold;
+ 	color: white;
+}
+#main
+{
+	text-align: center;
+	margin-top:2%;
+	text-shadow: 2px 2px 2px #b30059;
+	
+}
+.textbox
+{
+	border-radius: 5px;
+	width:40%; 
+	border:none; 
+
+}
+.textbox2
+{
+	border-radius: 5px;
+	border: none;	
+}
