@@ -12,7 +12,6 @@
 				var html = "<li><a href='#' onClick=\"changeName('"+value.email+"')\">"+value.name+"</a></li>";
 				var temp = $("#users").html();
 				$("#users").html(temp+html);
-					
 			});
 
 		}, function(error){
@@ -40,7 +39,6 @@
 			from: currentUser,
 			msg: $("#msg").val(),
 			date: Date.now(),
-			toName:$("#toName").val()
 		};
 		messages.push().set(msg, function(error){
 			console.log(error);
