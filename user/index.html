@@ -1,9 +1,12 @@
 <html>
 <head>
-	<title>hello</title>
+	<title>Message</title>
 	<link rel="stylesheet" type="text/css" href="../css/user_index.css">
+	<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css">
+	<link href='https://fonts.googleapis.com/css?family=Exo' rel='stylesheet' type='text/css'>
 </head>
-<body>
+<body class="body">
 	<div>
 		<h1>Welcome, <span id="currentUser"></span></h1>
 		<div style="display: inline-block; width:20%; vertical-align: top; border: 1px solid">
@@ -12,12 +15,12 @@
 			</ul>
 		</div>
 		<div style="display: inline-block; width:40%; border: 1px solid">
-			<h3>To: <span id="toName"></span></h3>
+			<h3>To: <span id="to"></span></h3>
 			<textarea name="textarea" id="msg" class="message" rows=5 cols=74 placeholder="write a message" style="border: 50%"></textarea>
-			<div style="text-align: right;"><button id="sendBtn">Send</button></div>
+			<div style="text-align: right;"><button id="sendBtn" class="btn btn-primary">Send</button></div>
 		</div>
 		<div style="display: inline-block; width:30%; vertical-align: top; border: 1px solid">
-			<button style="text-align:right;" id="logoutbtn">Logout</button>
+			<div style="text-align: right;"><button style="text-align:right;" id="logoutbtn" class="btn btn-primary">Logout</button></div>
 			<h2>Messages</h2>
 			<ul id="messages">
 			</ul>

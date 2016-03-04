@@ -1,18 +1,33 @@
-body
+.body
 {
-
+background-color: #33001a;
+font-family: 'Exo', sans-serif;
+text-shadow: 2px 2px 2px #b30059;
+color: white;
 }
 .message{
 	border: none;
 	padding: 5px;
 	width: 100%;
 	height: 100px;
+	background-color: #ffbf00;	
+	color: black;
 }
 #sendBtn
 {
+	
 	text-align: right;
+<<<<<<< HEAD
+	background-color: #ffbf00;
+}
+#logoutbtn
+{
+	background-color: #ffbf00;
+	}
+=======
 }
 #toName:focus
 {
 	outline: none;
 }
+>>>>>>> 945bfb3815260a0341d51fe8940712a6a70474f7
