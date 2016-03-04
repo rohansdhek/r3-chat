@@ -39,7 +39,9 @@
 				}
 			});
 	    }
-	
+	    
+	//Message Counting 
+
 		messages.on("value",function(serverMessages)
 			{	var count=0;
 				var msg=serverMessages.val();
