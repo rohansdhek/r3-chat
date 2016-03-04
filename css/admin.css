@@ -1,0 +1,30 @@
+
+.body
+{
+	margin: 0px;
+	font-family: 'Exo', sans-serif;
+ 	background-color:#33001a;
+ 	font-weight: bold;
+ 	color: white;
+}
+.icon
+{
+	color:white;
+	background-color: transparent;
+
+}
+.li
+{
+	list-style: none;
+	font-size: 18px;
+	color:black;
+}
+.border
+{
+	border: 2px white solid;
+}
+.del
+{
+	background-color:white;
+	color: white;
+}

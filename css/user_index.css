@@ -1,7 +1,11 @@
 .body
 {
 background-color: #33001a;
+<<<<<<< HEAD
 font-family: sans-serif;
+=======
+font-family: 'Exo', sans-serif;
+>>>>>>> master
 text-shadow: 2px 2px 2px #b30059;
 color: white;
 }
@@ -17,9 +21,26 @@ color: white;
 {
 	
 	text-align: right;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> master
 	background-color: #ffbf00;
 }
 #logoutbtn
 {
 	background-color: #ffbf00;
 	}
+<<<<<<< HEAD
+=======
+=======
+}
+#toName:focus
+{
+	outline: none;
+}
+.panel
+{
+	background-color: blue;
+}
+>>>>>>> master
