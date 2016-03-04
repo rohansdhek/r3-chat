@@ -1,6 +1,7 @@
 <html>
 <head>
 	<title>hello</title>
+	<link rel="stylesheet" type="text/css" href="../css/user_index.css">
 </head>
 <body>
 	<div>
@@ -12,8 +13,8 @@
 		</div>
 		<div style="display: inline-block; width:40%; border: 1px solid">
 			<h3>To: <span id="toName"></span></h3>
-			<textarea name="textarea" id="msg" class="message" rows=10 cols=20 placeholder="write a message" style="border: 50%"></textarea>
-			<button id="sendBtn">Send</button>
+			<textarea name="textarea" id="msg" class="message" rows=5 cols=74 placeholder="write a message" style="border: 50%"></textarea>
+			<div style="text-align: right;"><button id="sendBtn">Send</button></div>
 		</div>
 		<div style="display: inline-block; width:30%; vertical-align: top; border: 1px solid">
 			<button style="text-align:right;" id="logoutbtn">Logout</button>
@@ -28,5 +29,6 @@
 	<script src="../js/jquery-1.12.1.min.js"></script>
 	<script src="../js/firebase.js"></script>
 	<script type="text/javascript" src="../js/user.js"></script>
+
 </body>
 </html>
