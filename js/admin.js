@@ -10,8 +10,8 @@
 
 			$.each(users, function(index,value)
 			{
-				//remove("radheyborntorock@gmail.com","radhey");	
-				var user_list="<li>"+ value.name  +"<a href='#' onclick=\"removeUser('"+value.email+"','"+value.password+"','"+index+"')\" > Delete</a></li>";
+					
+				var user_list="<li class=\"li list-group-item\">"+ value.name  +"<span class=\"badge del\"><a href='#' onclick=\"removeUser('"+value.email+"','"+value.password+"','"+index+"')\" > <abbr title=\"Delete this User\"><i class=\"fa fa-times icon\"> </i></abbr></a></li>";
 				var temp=$("#users").html();
 				$("#users").html(temp+user_list);
 				count+=1;
