@@ -1,7 +1,14 @@
+body
+{
+
+}
 .message{
 	border: none;
 	padding: 5px;
-	width: 100px;
+	width: 100%;
 	height: 100px;
-	overflow: scroll;
+}
+#sendBtn
+{
+	text-align: right;
 }
