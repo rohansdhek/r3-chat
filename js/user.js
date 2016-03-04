@@ -44,6 +44,8 @@
 		};
 		messages.push().set(msg, function(error){
 			console.log(error);
+			$("#msg").val("");
+			$("#toName").val("");
 		});
 	});
 		
