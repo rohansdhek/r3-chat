@@ -64,17 +64,34 @@
 					var password2=$("#pass").val();
 					var set={email:email2,password:password2};
 					
-						db.createUser(set,function(error,UserData){});
+						db.createUser(set,function(error,UserData)
+						{
+							if(error)
+							{
+								$("#status").html("Try a different email,entered email already exist");
+							}
+							else
+								{
+								var create={name:fullName,email:email,password:password2,role:"user",};
+							db.child("users").push().set(create, function(error)
+								{	
+									if(error)
+									{
+										console.log(error);
+									}
+									else
+									{
 
-						var create={name:fullName,email:email,password:password2,role:"user",};
-						db.child("users").push().set(create, function(error)
-						{	
-							
-
-							$("#status").html('Account Created');
-							$("#email").val("");
-							$("#pass").val("");
-							$("#name").val("");
+										$("#status").html('Account Created');
+										$("#email").val("");
+										$("#pass").val("");
+										$("#name").val("");
+									}
+								
+								});
+							}
 						});
+
+						
 				}	
 		});
