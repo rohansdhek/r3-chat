@@ -72,6 +72,9 @@
 							
 
 							$("#status").html('Account Created');
+							$("#email").val("");
+							$("#pass").val("");
+							$("#name").val("");
 						});
 				}	
 		});

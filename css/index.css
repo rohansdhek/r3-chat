@@ -17,9 +17,11 @@
 .textbox
 {
 	border-radius: 5px;
-	width:40%; 
+	width:60%; 
 	border:none; 
 	color: black;
+	padding: 5px;
+
 
 }
 .textbox:focus{
@@ -30,6 +32,7 @@
 	border-radius: 5px;
 	border: none;	
 	color: black;
+	padding: 5px;
 }
 .textbox2:focus{
 	outline: none;
