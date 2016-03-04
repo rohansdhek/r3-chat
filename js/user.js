@@ -41,7 +41,7 @@
 	$("#sendBtn").on("click", function(){
 		var msg={
 			to: toEmail,
-			toName:toName;
+			toName:toName,
 			from: currentUser,
 			fromName: fromName,
 			msg: $("#msg").val(),
