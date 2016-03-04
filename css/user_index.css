@@ -30,4 +30,7 @@ color: white;
 {
 	outline: none;
 }
->>>>>>> 945bfb3815260a0341d51fe8940712a6a70474f7
+.panel
+{
+	background-color: blue;
+}
