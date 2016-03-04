@@ -41,7 +41,7 @@
 			msg: $("#msg").val(),
 			date: Date.now(),
 		};
-<<<<<<< HEAD
+
 			if(toEmail=="")
 			{
 				$("#to").html("Please enter recipient");
@@ -59,16 +59,7 @@
 					$("#msg").val("");
 					$("#to").val("");
 				});
-			}
-=======
-		messages.push().set(msg, function(error){
-			console.log(error);
-			$("#msg").val("");
-			$("#toName").val("");
-		});
-	});
->>>>>>> master
-		
+			}		
 	});
 		
 		$("#logoutbtn").on("click", function()
