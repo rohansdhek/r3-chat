@@ -48,8 +48,15 @@
 			date: Date.now(),
 			toName:$("#toName").val()
 		};
-		messages.push().set(msg, function(error){
-			console.log(error);
+			if(toName=="")
+			{
+				$("#toName").html("Please select atleast one recipient.");
+			}
+			else
+			{
+			messages.push().set(msg, function(error){
+				console.log(error);
+			}
 		});
 	});
 		

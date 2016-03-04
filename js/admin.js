@@ -1,7 +1,7 @@
 	var currentUser=localStorage.getItem("currentUser") 
 	$("#currentUser").html(currentUser);
 	var db = new Firebase("https://r3chat.firebaseio.com/users");
-	var messages=new Firebase("https://r3chat.firebaseio.com/users/messages");
+	
 	db.on("value",function(data)
 		{
 			var count=0;
@@ -41,21 +41,23 @@
 	    }
 	    
 	//Message Counting 
-
+	var messages=new Firebase("https://r3chat.firebaseio.com/users/messages");
+		console.log(messages);
 		messages.on("value",function(serverMessages)
-			{	var count=0;
+			{
+				console.log("We are in");
+				var count=0;
 				var msg=serverMessages.val();
 				//$("#messages").html("");
+				console.log();
 				$.each(msg, function(index, value)
 				{
-					
-					/*var msg_entry="<li><a href='#'>"+value.msg+"</a></li>";
-					var temp=$("#messages").html();
-					$("#messages").html(temp+msg_entry);*/
+					console.Log("We are in each loop");
 					count+=1;
-				})
-				$("total_msg").html(count);
+				});
+				$("#total_msg").html(count);
 
+					console.log("We are out of each loop");
 			});
 
 /*Logout Function*/

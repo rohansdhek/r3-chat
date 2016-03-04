@@ -12,3 +12,7 @@ body
 {
 	text-align: right;
 }
+#toName:focus
+{
+	outline: none;
+}
