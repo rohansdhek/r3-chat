@@ -20,7 +20,7 @@
 
 		function changeName(name1){
 			toEmail=name1;
-			$("#toName").html(name1);
+			$("#to").html(name1);
 		}
 		var messages = new Firebase("https://r3chat.firebaseio.com/messages");
 		messages.on("value", function(serverMessages){
@@ -33,21 +33,46 @@
 			
 				}) 
 		});
-	$("#sendBtn").on("click", function(){
-		var msg={
+	$("#sendBtn").on("click", function()
+	{
+		var message={
 			to: toEmail,
 			from: currentUser,
 			msg: $("#msg").val(),
 			date: Date.now(),
 		};
+<<<<<<< HEAD
+			if(toEmail=="")
+			{
+				$("#to").html("Please enter recipient");
+			}
+			else if(message.msg=="")
+			{
+				$("#msg").html("You can't send empty message");
+
+			}
+			else
+			{
+				messages.push().set(message, function(error)
+				{
+					console.log(error);
+					$("#msg").val("");
+					$("#to").val("");
+				});
+			}
+=======
 		messages.push().set(msg, function(error){
 			console.log(error);
 			$("#msg").val("");
 			$("#toName").val("");
 		});
 	});
+>>>>>>> master
 		
-	$("#logoutbtn").on("click", function(){
-		localStorage.setItem("currentUser","");
-		window.location.href="../index.html";			
 	});
+		
+		$("#logoutbtn").on("click", function()
+		{
+			localStorage.setItem("currentUser","");
+			window.location.href="../index.html";	
+		});
