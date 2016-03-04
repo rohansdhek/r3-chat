@@ -30,6 +30,7 @@
 						$.each(users, function(index, user){
 							if(user.email === email1){
 								role=user.role;
+								localStorage.setItem("toName",user.name);
 							}
 						});
 						if(role==='admin'){
