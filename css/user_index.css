@@ -1,0 +1,7 @@
+.message{
+	border: none;
+	padding: 5px;
+	width: 100px;
+	height: 100px;
+	overflow: scroll;
+}
