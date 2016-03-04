@@ -1,11 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" type="text/css" href="../css/admin.css">
+<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+<link href='https://fonts.googleapis.com/css?family=Exo' rel='stylesheet' type='text/css'>
+
 	<title>Welcome</title>
 </head>
-<body>
-	<h1>Welcome, <span id="currentUser"></span></h1>
-	<div style="text-align:right"><button id="logout">Logout</button></div>
+<body class="body">
+<div class="col-lg-12">
+	<div class="col-lg-8">
+		<h1>Welcome, <span id="currentUser"></span></h1>
+	</div>
+	<div class="col-lg-4 text-right">
+		<button id="logout" class="btn btn-primary" style="margin-top: 5%"><b>Logout</b></button>
+	</div>	
+</div>	
+	<!--<div style="text-align:right"></div>-->
 	<div style="display: inline-block; margin: 1%;">
 		<h3><span id="total"></span> </h3>
 		<ul id="users"></ul>
