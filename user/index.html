@@ -5,21 +5,22 @@
 <body>
 	<div>
 		<h1>Welcome, <span id="currentUser"></span></h1>
-		<div style="display: inline-block; width:20%;">
+		<div style="display: inline-block; width:20%; vertical-align: top; border: 1px solid">
 			<h2>Friend list</h2>
-			<ul id="users">
+			<ul id="users" list-style>
 			</ul>
 		</div>
-		<div style="display: inline-block; width:40%;">
+		<div style="display: inline-block; width:40%; border: 1px solid">
 			<h3>To: <span id="toName"></span></h3>
-			<textarea name="textarea" id="msg" rows=20 cols=40 placeholder="write a message"></textarea>
+			<textarea name="textarea" id="msg" class="message" rows=10 cols=20 placeholder="write a message" style="border: 50%"></textarea>
 			<button id="sendBtn">Send</button>
 		</div>
-		<div style="display: inline-block; width:10%;">
+		<div style="display: inline-block; width:30%; vertical-align: top; border: 1px solid">
+			<button style="text-align:right;" id="logoutbtn">Logout</button>
 			<h2>Messages</h2>
 			<ul id="messages">
 			</ul>
-			<button style="text-align:right;" id="logoutbtn">Logout</button>
+			
 		</div>
 	</div>
 
