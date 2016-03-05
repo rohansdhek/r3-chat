@@ -41,14 +41,13 @@
 			msg: $("#msg").val(),
 			date: Date.now(),
 		};
-
 			if(toEmail=="")
 			{
 				$("#to").html("Please enter recipient");
 			}
 			else if(message.msg=="")
 			{
-				$("#msg").html("You can't send empty message");
+				$("#msg1").html("You can't send empty message");
 
 			}
 			else
