@@ -2,6 +2,7 @@
 	var senderName = localStorage.getItem("senderName");
 	var toEmail="";
 	var toName="";
+	
 	$("#currentUser").html(currentUser);
 
 	var db=new Firebase("https://r3chat.firebaseio.com/users");
@@ -30,13 +31,14 @@
 		$("#messagessent").html("");
 		$("#messagesrec").html("");
 		$.each(msg, function(index, value){
+			var d = new Date(value.date);
 			if(value.senderName==senderName){
-				var html = "<li><b>"+value.receiverName+"</b>:"+value.msg+"</li>";
+				var html = "<li><b>"+value.receiverName+"</b>:<small>"+d.getHours()+":"+d.getMinutes()+"</small><br>"+value.msg+"</li>";
 				var temp = $("#messagessent").html();
 				$("#messagessent").html(temp+html);
 			}
 			if(value.receiverName==senderName){
-				var html = "<li><b>"+value.senderName+"</b>:"+value.msg+"</li>";
+				var html = "<li><b>"+value.senderName+"</b>:<small>"+d.getHours()+":"+d.getMinutes()+"</small><br>"+value.msg+"</li>";
 				var temp = $("#messagesrec").html();
 				$("#messagesrec").html(temp+html);
 			}			
