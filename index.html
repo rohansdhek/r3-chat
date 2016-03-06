@@ -1,44 +1,58 @@
 <html>
+
 <head>
-<link href="css/index.css" type="text/css" rel="stylesheet">
-<link href="css/font-awesome.min.css" type="text/css" rel="stylesheet">
-<link href="css/bootstrap.min.css" type="text/css" rel="stylesheet">
-<link href='https://fonts.googleapis.com/css?family=Exo' rel='stylesheet' type='text/css'>
+	<link href="css/index.css" type="text/css" rel="stylesheet">
+	<link href="css/font-awesome.min.css" type="text/css" rel="stylesheet">
+	<link href="css/bootstrap.min.css" type="text/css" rel="stylesheet">
+	<link href='https://fonts.googleapis.com/css?family=Exo' rel='stylesheet' type='text/css'>
 	<title>R3Chat | Login</title>
 </head>
 
 <body class="body">
-<div class="col-lg-12" id="main">
-	
-	<div class="col-lg-4"></div>
-	<div class="col-lg-5" id="mid">
-	<img src="images/icon.png" width="80" height="80" style="margin-top: 3%" class="img-circle">
-	<h1><b> Chat App</b></h1>
-	<div>
-		Email: &nbsp;<input type="email" id="log_email" class="textbox2"></input>&nbsp;&nbsp;&nbsp;
-		Password: &nbsp;<input type="password" id="log_pass" class="textbox2"></input><br><br>
-		<button type="submit" id="login" class="btn btn-primary"><b>Login</b></button>
-		<p id="load"></p>
-		<p id="warning" style="color: white"></p>
+	<div class="col-lg-12" id="main">
+
+		<div class="col-lg-4"></div>
+		<div class="col-lg-5" id="mid">
+			<img src="images/icon.png" width="80" height="80" style="margin-top: 3%" class="img-circle">
+			<h1><b> Chat App</b></h1>
+			<div>
+				Email: &nbsp;
+				<input type="email" id="log_email" class="textbox2"></input>&nbsp;&nbsp;&nbsp; Password: &nbsp;
+				<input type="password" id="log_pass" class="textbox2"></input>
+				<br>
+				<br>
+				<button type="submit" id="login" class="btn btn-primary"><b>Login</b></button>
+				<p id="load"></p>
+				<p id="warning" style="color: white"></p>
+			</div>
+			<hr>
+			<div style="margin: 2%">
+				<h2><b>Create Account</b></h2> Full Name
+				<br>
+				<input type="text" id="name" class="textbox"></input>
+				<br>
+				<br> Email address
+				<br>
+				<input type="email" id="email" class="textbox"></input>
+				<br>
+				<br> Password
+				<br>
+				<input type="password" id="pass" class="textbox"></input>
+				<br>
+				<br>
+				<button type="submit" id="btn" class="btn btn-primary"><b>Create Account</b>
+				</button>&nbsp;&nbsp;&nbsp;
+				<span id="error" style="color: white;"></span>
+
+				<p id="status"></p>
+			</div>
+		</div>
+		<div class="col-lg-3"></div>
 	</div>
-	<hr>
-	<div style="margin: 2%">
-		<h2><b>Create Account</b></h2>	
-		Full Name  <br><input type="text" id="name" class="textbox"></input><br><br>
-		Email address<br> <input type="email" id="email" class="textbox"></input><br><br>
-		Password<br>  <input type="password" id="pass" class="textbox"></input><br><br>
-		<button type="submit" id="btn" class="btn btn-primary"><b>Create Account</b>
-		</button>&nbsp;&nbsp;&nbsp;
-		<span id="error" style="color: white;"></span>
-		
-		<p id="status"></p>
-	</div>
-	</div>
-	<div class="col-lg-3"></div>	
-</div>
 	<script src="js/jquery-1.12.1.min.js"></script>
 	<script src="js/firebase.js"></script>
 	<script type="text/javascript" src="js/app.js"></script>
 	<script type="text/javascript" src="js/user.js"></script>
 </body>
+
 </html>

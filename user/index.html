@@ -1,4 +1,5 @@
 <html>
+
 <head>
 	<title>Message</title>
 	<link rel="stylesheet" type="text/css" href="../css/user_index.css">
@@ -7,8 +8,9 @@
 	<link rel="stylesheet" type="text/css" href="../css/font-awesome.css">
 	<link href='https://fonts.googleapis.com/css?family=Exo' rel='stylesheet' type='text/css'>
 </head>
+
 <body class="body">
-	<div >
+	<div>
 		<h1>Welcome, <span id="currentUser"></span></h1>
 		<div style="text-align: right;">
 			<button id="logoutbtn" class="btn btn-primary">Logout</button>
@@ -26,19 +28,19 @@
 			<h3>To: <span id="to"></span></h3>
 			<textarea name="textarea" id="msg" class="message" rows=5 cols=74 placeholder="write a message" style="border: 50%"></textarea>
 			<span id="msg1" style="text-align: left;"></span>
-			<div style="text-align: right";>
+			<div style="text-align: right" ;>
 				<button id="sendBtn" class="btn btn-primary">Send</button>
 			</div>
 		</div>
-		
+
 
 		<div style="display: inline-block; width:25%; vertical-align:top;  margin-top: 5%;">
 			<h2 style=" text-align: justify;">Messages Recieved</h2>
 			<ul id="messagesrec" style="list-style-type:none">
 				<li>Loading...</li>
-			</ul>			
-			</div>
-		<div style="display: inline-block; width:25%; vertical-align:top;  margin-top: 5%;">	
+			</ul>
+		</div>
+		<div style="display: inline-block; width:25%; vertical-align:top;  margin-top: 5%;">
 			<h2 style=" text-align: justify;">Messages Sent</h2>
 			<ul id="messagessent" style="list-style-type:none">
 				<li>Loading...</li>
@@ -52,4 +54,5 @@
 	<script type="text/javascript" src="../js/user.js"></script>
 
 </body>
+
 </html>
