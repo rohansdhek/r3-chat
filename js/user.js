@@ -32,13 +32,14 @@
 		$("#messagesrec").html("");
 		$.each(msg, function(index, value){
 			var d = new Date(value.date);
+			console.log(d);
 			if(value.senderName==senderName){
-				var html = "<li><b>"+value.receiverName+"</b>:<small>"+d.getHours()+":"+d.getMinutes()+"</small><br>"+value.msg+"</li>";
+				var html = "<li><b>"+value.receiverName+"</b>:<small>"+d.getDate()+"/"+d.getMonth()+"/"+d.getFullYear()+"-"+d.getHours()+":"+d.getMinutes()+"</small><br>"+value.msg+"</li>";
 				var temp = $("#messagessent").html();
 				$("#messagessent").html(temp+html);
 			}
 			if(value.receiverName==senderName){
-				var html = "<li><b>"+value.senderName+"</b>:<small>"+d.getHours()+":"+d.getMinutes()+"</small><br>"+value.msg+"</li>";
+				var html = "<li><b>"+value.senderName+"</b>:<small>"+d.getDate()+"/"+d.getMonth()+"/"+d.getFullYear()+"-"+d.getHours()+":"+d.getMinutes()+"</small><br>"+value.msg+"</li>";
 				var temp = $("#messagesrec").html();
 				$("#messagesrec").html(temp+html);
 			}			
