@@ -30,7 +30,7 @@
 						$.each(users, function(index, user){
 							if(user.email === email1){
 								role=user.role;
-								localStorage.setItem("toName",user.name);
+								localStorage.setItem("senderName",user.name);
 							}
 						});
 						if(role==='admin'){
@@ -49,7 +49,6 @@
 
 	$("#btn").on('click', function()
 		{
-
 			var fullName=$("#name").val();
 			var email= $("#email").val();
 			var password=$("#pass").val();
